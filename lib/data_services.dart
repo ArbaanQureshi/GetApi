@@ -6,7 +6,6 @@ import 'package:api/model.dart';
 // class  DataServices{
 //   final _baseUrl='jsonplaceholder.typicode.com';
 //     Future<List<Post>> getPosts() async {
-//
 //       try {
 //         final uri = Uri.http(_baseUrl,'/posts');
 //         final response = await http.get(uri);
@@ -32,7 +31,8 @@ class DataServicesDio{
           response= await dio.get(url);
           if(response.statusCode==200){
             var json=response.data;
-            var pos=List<Post>.from(json.map((e)=>Post.fromJson(e)));
+            var pos=List<Post>.from(
+                json.map((e)=>Post.fromJson(e)));
             return pos;
           }else{
             throw 'someThing Wentr Wrong ${response.statusCode}';
